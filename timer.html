@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>타이머</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="timer-container">
+    <div id="input-container">
+      <input type="number" id="hours" class="timer-input" placeholder="시">
+      <input type="number" id="minutes" class="timer-input" placeholder="분">
+      <input type="number" id="seconds" class="timer-input" placeholder="초">
+    </div>
+    <div id="current-time"></div>
+    <br>
+    <button id="start-button" class="timer-button" onclick="startTimer()">START</button>
+    <button class="timer-button" onclick="stopTimer()">STOP</button>
+    <button class="timer-button" onclick="resetTimer()">RESET</button>
+  </div>
+<script src="script.js"></script>
+</body>
+</html>
