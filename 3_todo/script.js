@@ -1,5 +1,4 @@
 
-<script>
 document.getElementById('add-task').addEventListener('click', function() {
   var taskDescription = document.getElementById('new-task').value;
   var taskPriority = document.getElementById('priority').value;
@@ -100,4 +99,3 @@ document.addEventListener('change', function(e) {
     filterTasks();
   }
 });
-</script>
