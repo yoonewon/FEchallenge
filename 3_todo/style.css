@@ -1,0 +1,159 @@
+ body {
+      font-family: 'Arial', sans-serif;
+      background-color: #e9ecef;
+      margin: 0;
+      padding: 20px;
+    }
+    #todo-app {
+      background-color: #f8f9fa;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      border-radius: 10px;
+    }
+    .title {
+        margin-top: 40px;
+  font-size: 36px; /* 제목 크기 증가 */
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #343a40; 
+}
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .tab {
+    margin: 0 10px;
+    padding: 10px 15px; /* 패딩 조정으로 탭 크기 증가 */
+    font-size: 18px; /* 폰트 크기 증가 */
+    cursor: pointer;
+    background-color: #dee2e6;
+    border: none;
+    border-radius: 5px;
+    }
+    .tab.active {
+      background-color: #adb5bd;
+    }
+    #todo-app input, #todo-app select, #todo-app button {
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border: 1px solid #ced4da;
+      text-align: left;
+    }
+    #todo-app button {
+      background-color: #333333;
+      color: white;
+    }
+    #todo-app button:hover {
+      background-color: #5a6268;
+    }
+    #tasks {
+      margin-top: 20px;
+    }
+    .task-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    }
+    .task-item input[type="checkbox"] {
+    transform: scale(1.5); 
+    margin-right: 15px; 
+    vertical-align: middle; 
+    }
+
+
+    .task-content {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-grow: 1;
+    }
+
+    .task-description {
+    margin-right: 10px; 
+    flex-grow: 1; 
+    text-align: left; 
+    }
+
+    .priority {
+    padding: 2px 5px;
+    border-radius: 15px; 
+    color: white; 
+    font-weight: bold; 
+    }
+
+    .priority.low {
+    background-color: #5bc0de; 
+    }
+
+    .priority.medium {
+    background-color: #28a745; 
+    }
+
+    .priority.high {
+    background-color: #f0ad4e; 
+    }
+
+    .priority.very-high {
+    background-color: #d9534f; 
+    }
+
+    .task-actions {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    }
+    .edit, .delete {
+      cursor: pointer;
+      margin-left: 10px;
+    }
+    .task-item.completed .task-description {
+      text-decoration: line-through;
+      color: #6c757d;
+    }
+    .task-item.completed {
+    background-color: #e0e0e0;
+    }
+    .filter-buttons {
+    text-align: right;
+    margin-bottom: 10px;
+  }
+  .filter-link {
+    font-size: 14px;
+    color: #007bff;
+    cursor: pointer;
+    text-decoration: none;
+    margin-left: 15px;
+  }
+  .filter-link:hover {
+    text-decoration: underline;
+  }
+  .input-group {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  flex-wrap: wrap; 
+  margin: 0 auto; 
+  width: 100%; 
+  max-width: 600px; 
+}
+
+#new-task {
+  width: calc(60% - 10px); 
+  margin: 5px;
+}
+
+#priority {
+  width: calc(20% - 10px);
+  margin: 5px;
+}
