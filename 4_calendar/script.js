@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const editNoteButton = document.getElementById('edit-note');
     const deleteNoteButton = document.getElementById('delete-note');
     const weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const closeNoteButton = document.getElementById('close-note');
 
     function updateNoteVisibility() {
         if (selectedDateKey && notes[selectedDateKey]) {
@@ -78,7 +79,8 @@ document.addEventListener('DOMContentLoaded', function() {
         if (noteContent.value.trim()) {
             notes[selectedDateKey] = noteContent.value.trim();
             renderCalendar();
-            noteContainer.style.display = 'none';
+            updateNoteVisibility();
+            //noteContainer.style.display = 'none';
         }
     });
 
@@ -115,6 +117,9 @@ document.addEventListener('DOMContentLoaded', function() {
             currentMonth += 1;
         }
         renderCalendar();
+    });
+    closeNoteButton.addEventListener('click', () => {
+        noteContainer.style.display = 'none';
     });
 
     renderCalendar(); // 초기 캘린더 렌더링
