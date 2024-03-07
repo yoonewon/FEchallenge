@@ -1,0 +1,124 @@
+body {
+    @font-face {
+        font-family: 'WarhavenB';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2312-1@1.1/WarhavenB.woff2') format('woff2');
+        font-weight: 700;
+        font-style: normal;
+    }
+}
+
+#calendar-container {
+    max-width: 480px; /* 달력 너비 증가 */
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+#calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px; /* 패딩 증가 */
+    background-color: #f7f7f7;
+}
+
+#calendar-header button {
+    background-color: #eaeaea;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px; /* 버튼 크기 증가 */
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 16px; /* 폰트 사이즈 증가 */
+    color: #333;
+}
+
+#calendar-header button:hover {
+    background-color: #d5d5d5;
+}
+
+#calendar-header span {
+    font-size: 20px; /* 월/년 폰트 사이즈 증가 */
+    font-weight: bold;
+}
+
+#calendar-days-header {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    background-color: #f7f7f7;
+}
+
+#calendar-days-header div {
+    padding: 15px; /* 요일 헤더 패딩 증가 */
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px; /* 요일 폰트 사이즈 증가 */
+}
+
+#calendar-body {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+#calendar-body div {
+    padding: 15px; /* 날짜 패딩 증가 */
+    text-align: center;
+    font-size: 16px; /* 날짜 폰트 사이즈 증가 */
+    border-right: 1px solid #eaeaea;
+    border-bottom: 1px solid #eaeaea;
+    transition: background-color 0.3s;
+}
+
+#calendar-body div:hover {
+    background-color: #e0f7fa;
+}
+
+.day {
+    cursor: pointer;
+}
+
+.padding {
+    background-color: #fff;
+    cursor: default;
+}
+
+.day:last-child, .padding:last-child {
+    border-right: none;
+}
+.note-indicator {
+    color: red;
+    font-weight: bold;
+}
+
+.note-indicator {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 50%;
+    background-color: #ffdddd;
+    color: #333;
+    text-align: center;
+    font-weight: bold;
+}
+
+#note-container {
+    flex-grow: 1;
+    display: none; /* 처음에는 숨김 */
+    position: absolute;
+    right: 20px; /* 오른쪽 정렬 */
+    top: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px; /* 메모장 너비 설정 */
+}
+
+#note-content {
+    width: 100%;
+    height: 150px;
+    margin-bottom: 10px;
+}
