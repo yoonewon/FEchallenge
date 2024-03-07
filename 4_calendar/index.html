@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calendar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="calendar-container">
+    <div id="calendar-header">
+        <button id="prev-month">&lt;</button>
+        <span id="month-year"></span>
+        <button id="next-month">&gt;</button>
+    </div>
+    <div id="calendar-header">
+        <div>Sun</div>
+        <div>Mon</div>
+        <div>Tue</div>
+        <div>Wed</div>
+        <div>Thu</div>
+        <div>Fri</div>
+        <div>Sat</div>
+    </div>
+    <div id="calendar-body"></div>
+</div>
+<div id="note-container" style="display: none;">
+    <textarea id="note-content" rows="10" cols="30">메모를 여기에 작성하세요.</textarea>
+    <button id="register-note" style="display: none;">등록</button>
+    <button id="edit-note" style="display: none;">수정</button>
+    <button id="delete-note" style="display: none;">삭제</button>
+</div>
+
+
+<script src="script.js"></script>
+</body>
+</html>
