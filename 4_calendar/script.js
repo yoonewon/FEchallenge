@@ -2,11 +2,38 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentMonth = new Date().getMonth();
     let currentYear = new Date().getFullYear();
     const notes = {}; // 날짜별 메모를 저장하는 객체
+    let selectedDateKey = null;
 
     const prevMonthButton = document.getElementById('prev-month');
     const nextMonthButton = document.getElementById('next-month');
     const noteContainer = document.getElementById('note-container');
     const noteContent = document.getElementById('note-content');
+    const registerNoteButton = document.getElementById('register-note');
+    const editNoteButton = document.getElementById('edit-note');
+    const deleteNoteButton = document.getElementById('delete-note');
+    const weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+    function updateNoteVisibility() {
+        if (selectedDateKey && notes[selectedDateKey]) {
+            noteContent.readOnly = true;
+            noteContent.value = notes[selectedDateKey];
+            registerNoteButton.style.display = 'none';
+            editNoteButton.style.display = 'inline';
+            deleteNoteButton.style.display = 'inline';
+        } else {
+            noteContent.readOnly = false;
+            noteContent.value = '';
+            registerNoteButton.style.display = 'inline';
+            editNoteButton.style.display = 'none';
+            deleteNoteButton.style.display = 'none';
+        }
+        noteContainer.style.display = 'block';
+    }
+
+    function selectDate(dateKey) {
+        selectedDateKey = dateKey;
+        updateNoteVisibility();
+    }
 
     function renderCalendar() {
         const firstDayOfMonth = new Date(currentYear, currentMonth, 1);
@@ -31,36 +58,44 @@ document.addEventListener('DOMContentLoaded', function() {
             daySquare.classList.add('day');
             if(i > paddingDays) {
                 const day = i - paddingDays;
-                const dateKey = `${currentYear}-${currentMonth}-${day}`;
-                if(notes[dateKey]) {
-                    // 메모가 있으면 원 안에 날짜 표시
-                    daySquare.innerHTML = `<span class='note-indicator'>${day}</span>`;
-                } else {
-                    // 메모가 없으면 일반적으로 날짜만 표시
-                    daySquare.innerText = day;
-                }
+                daySquare.innerText = day;
+                const dateKey = `${currentYear}-${currentMonth + 1}-${day}`;
                 daySquare.addEventListener('click', function() {
-                    noteContainer.style.display = 'block';
-                    noteContent.value = notes[dateKey] || '';
-                    noteContent.focus();
-                    noteContent.onblur = function() {
-                        if (noteContent.value.trim()) {
-                            notes[dateKey] = noteContent.value;
-                            daySquare.innerHTML = `<span class='note-indicator'>${day}</span>`; // 메모를 저장하고 표시 업데이트
-                        } else {
-                            delete notes[dateKey]; // 비어있는 메모는 삭제
-                            daySquare.innerText = day; // 원래 날짜 표시로 복원
-                        }
-                        noteContainer.style.display = 'none';
-                    };
+                    selectDate(dateKey);
                 });
-                calendarBody.appendChild(daySquare);
+
+                if(notes[dateKey]) {
+                    daySquare.innerHTML = `<span class='note-indicator'>${day}</span>`;
+                }
             } else {
                 daySquare.classList.add('padding');
-                calendarBody.appendChild(daySquare);
             }
+            calendarBody.appendChild(daySquare);
         }
     }
+
+    registerNoteButton.addEventListener('click', () => {
+        if (noteContent.value.trim()) {
+            notes[selectedDateKey] = noteContent.value.trim();
+            renderCalendar();
+            noteContainer.style.display = 'none';
+        }
+    });
+
+    editNoteButton.addEventListener('click', () => {
+        noteContent.readOnly = false;
+        registerNoteButton.style.display = 'inline';
+        editNoteButton.style.display = 'none';
+        deleteNoteButton.style.display = 'none';
+    });
+
+    deleteNoteButton.addEventListener('click', () => {
+        if (confirm('메모를 삭제하시겠습니까?')) {
+            delete notes[selectedDateKey];
+            renderCalendar();
+            noteContainer.style.display = 'none';
+        }
+    });
 
     prevMonthButton.addEventListener('click', () => {
         if (currentMonth === 0) {
@@ -84,5 +119,3 @@ document.addEventListener('DOMContentLoaded', function() {
 
     renderCalendar(); // 초기 캘린더 렌더링
 });
-
-const weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
