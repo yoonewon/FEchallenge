@@ -1,0 +1,70 @@
+.header {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    align-items: center;
+}
+
+.logo-and-nav {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    /* SVG 로고의 크기에 맞게 설정하세요 */
+    margin-right: 20px; /* Adjust as needed */
+}
+
+.nav-left {
+    display: flex;
+    margin-right: auto; /* This will push the nav-left to the far left */
+}
+
+.nav-left .nav-links,
+.nav-right .nav-links {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+}
+
+.nav-left .nav-links li,
+.nav-right .nav-links li {
+    margin: 0 10px;
+}
+
+.nav-left .nav-links li a,
+.nav-right .nav-links li a {
+    text-decoration: none;
+    color: #000;
+    font-size: 16px;
+}
+.nav-right .nav-links li a {
+    color: #17A1FF; /* 하늘색 */
+}
+.nav-right .nav-links li a.service-intro {
+    color: #ABB1B1; 
+}
+.nav-left .nav-links li a {
+    color: #ABB1B1;
+}
+.main-content {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px; /* Adjust based on your layout */
+  }
+  
+  .banner-1,
+  .banner-2 {
+    width: 49%; /* Adjust the width if necessary */
+  }
+  
+  .banner-1 img,
+  .banner-2 img {
+    width: 100%;
+    height: auto;
+    display: block; /* This will remove any extra space below the image */
+  }
+  
