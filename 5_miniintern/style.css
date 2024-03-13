@@ -52,19 +52,34 @@
 }
 .main-content {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     margin-top: 20px; /* Adjust based on your layout */
   }
   
   .banner-1,
   .banner-2 {
-    width: 49%; /* Adjust the width if necessary */
+      flex: 1; /* Allow each banner to grow */
+      box-sizing: border-box; /* Include padding and borders in the element's size */
+      margin: 10px; /* Add margin to all sides of the banners */
   }
   
   .banner-1 img,
   .banner-2 img {
-    width: 100%;
-    height: auto;
-    display: block; /* This will remove any extra space below the image */
+      width: 100%; /* Make image fill its container */
+      height: auto; /* Keep the aspect ratio */
+      display: block; /* Remove extra space below the image */
   }
-  
+
+  .page-body {
+    display: flex; /* Establishes a flex container */
+    justify-content: center; /* Centers flex items on the main axis (horizontally) */
+    padding: 20px; /* Add padding around the content */
+}
+
+.banner-1 {
+    margin-right: 20px; /* Add right margin to banner-1 */
+}
+
+.banner-2 {
+    margin-left: 20px; /* Add left margin to banner-2 */
+}
